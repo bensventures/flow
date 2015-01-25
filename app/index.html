@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="icon" type="image/png" href="favicon.png">
+	<title>Next generation collaboration and discussion</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<link rel="stylesheet" href="css/app.css">
+</head>
+<body ng-controller="discussionController">
+
+<article class="ng-cloak topic" ng-class="{opened : topicVisible}" ng-repeat="topic in topics" ng-controller="topicController">
+	<header class="topic-header cf" style="color:{{ topic.topictitle | string_to_colour }}">
+		<h2 class="topic-title">
+			<a ng-click="onClickTopicTitle()">
+				<i class="ion icon-topic-state"></i>{{ topic.topictitle }}
+			</a>
+		</h2>
+		<section class="topic-meta">
+			<div class="response-count" title="{{ topic.responses.length }} comments in the discussion">
+				<span class="counter">{{ topic.responses.length }}</span><i class="icon-responses-count ion-chatboxes"></i>
+			</div>
+			<span class="mobile-only">-</span>
+			<div class="response-last">
+				last post <span ng-bind-html="topic.responses[topic.responses.length-1].age | time_format"></span>
+			</div>
+		</section>
+	</header>
+	<section class="responses" ng-show="topicVisible">
+		<article class="response depth-{{response.depth}}" ng-class="{odd: $odd}" ng-repeat="response in topic.responses">
+			<header>
+				<span class="author">
+					<i class="icon-author ion-person"></i>{{response.author}}
+				</span>
+				<span class="since">
+					<i class="icon-time ion-clock"></i><span ng-bind-html="response.age | time_format"></span>
+				</span>
+			</header>
+			<div class="response-content" ng-bind-html="response.posttext | to_trusted"></div>
+		</article>
+	</section>
+</article>
+
+<!-- toggle:dev -->
+<script src="components/requirejs/require.js" data-main="bootstrap"></script>
+<!-- endtoggle -->
+
+<!-- toggle:dist -->
+<script src="js/flow.js"></script>
+<!-- endtoggle -->
+</body>
+</html>

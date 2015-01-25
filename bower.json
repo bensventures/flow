@@ -1,0 +1,19 @@
+{
+  "name": "flow",
+  "description": "Next generation collaboration and discussion engine",
+  "version": "0.0.1",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "1.2.x",
+    "requirejs": "~2.1.15",
+    "moment": "~2.9.0",
+    "normalize-scss": "appleboy/normalize.scss#~3.0.2"
+  },
+  "resolutions": {
+    "angular": "1.2.x"
+  },
+  "devDependencies": {
+    "almond": "~0.3.0"
+  }
+}

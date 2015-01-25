@@ -1,0 +1,199 @@
+/* app css stylesheet */
+@import '../components/normalize-scss/normalize';
+@import 'ionicons/ionicons';
+
+$line: 1.4rem;
+
+$wikigray : #aaa;
+$wikilink: #0645ad;
+
+$text-dark : #226;
+$text-contrast-light: #666;
+$light: #ddd;
+
+html, body {
+	
+}
+
+body {
+	line-height: $line;
+	color: $text-dark;
+}
+
+a {
+	color: $wikilink;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.topic {
+	padding: 1rem 0;
+	border-bottom: 1px solid $wikigray;
+}
+
+	.topic-header {
+		margin: 0 0 0 2rem;
+		font-weight: 100;
+	}
+
+	.topic-title {
+		font-weight: 100;
+		line-height: 1.8rem;
+
+		a {
+			color: inherit;
+		}
+	}
+
+	.icon-topic-state {
+
+		display: inline-block;
+		width: 2rem; 
+		margin-left: -2rem;
+		text-align: center;
+
+		&:before {
+			font-size: .8rem;
+			vertical-align: middle;
+			content: $ionicon-var-chevron-right;
+		}
+	}
+
+	.topic-meta {
+
+		i {
+			color: $wikigray;
+			margin-left: .2rem;
+		}
+
+		div {
+			display: inline-block;
+		}
+	}
+
+.topic.opened {
+	.icon-topic-state:before {
+		content: $ionicon-var-chevron-down;
+	}
+}
+
+/* Reponse styling */
+
+.responses {
+	margin: 1.4rem 2rem 0 2rem;
+}
+
+.response {
+	margin-bottom: $line * 2;
+	clear: both;
+}
+
+.author, .since {
+	font-size: .8rem;
+}
+
+
+.since {
+	float: right;
+	color: $text-contrast-light;
+}
+
+.icon-author {
+	display: inline-block;
+	width: 1.2rem;
+	height: 1.2rem;
+	margin-right: .5rem;
+	text-align: center;
+}
+
+.icon-time {
+	font-size: 1rem;
+	margin-right: .5rem;
+}
+
+.response-content {
+	word-wrap: break-word;
+}
+
+@media (min-width: 800px) {
+
+	body {
+		max-width: 66em;
+	}
+
+	.mobile-only {
+		display: none;
+	}
+
+	.topic-title {
+		display: inline-block;
+		width: 80%;
+	}
+
+	.topic-meta {
+		display: inline-block;
+		width: 19%;
+		float: right;
+
+		div {
+			display: inline-block;
+			width: 40%;
+			text-align: center;
+			font-size: .8rem;
+		}
+
+		.counter, .duration-number {
+			font-size: 2rem;
+			display: block;
+			margin: .2rem 0;
+		}
+	}
+
+	.responses {
+		max-width: 33em;
+	}
+
+	.depth-1 {
+		padding-left: 1rem;
+	}
+	.depth-2 {
+		margin-left: 2rem;
+	}
+	.depth-3 {
+		margin-left: 2rem;
+	}
+	.depth-4 {
+		margin-left: 2rem;
+	}
+	.depth-5 {
+		margin-left: 2rem;
+	}
+}
+
+/* 
+  Allow angular.js to be loaded in body, hiding cloaked elements until 
+  templates compile.  The !important is important given that there may be 
+  other selectors that are more specific or come later and might alter display.  
+ */
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
+
+/* clearfix */
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+    *zoom: 1;
+}
