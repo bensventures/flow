@@ -1,4 +1,6 @@
 /* app css stylesheet */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
+@import url(http://fonts.googleapis.com/css?family=Merriweather:400,700);
 /* ==========================================================================
    Normalize.scss settings
    ========================================================================== */
@@ -1995,13 +1997,26 @@ td, th {
 
 
 body {
-  line-height: 1.4rem;
-  color: #222266; }
+  line-height: 1.6rem;
+  color: #222266;
+  font-family: "Open Sans"; }
 
 a {
   color: #0645ad;
   text-decoration: none;
   cursor: pointer; }
+
+button {
+  background: none;
+  border: 0;
+  border-radius: 0.2rem;
+  color: #aaaaaa;
+  font-weight: 100;
+  font-size: 0.8rem; }
+
+button:hover {
+  background: #27ae60;
+  color: white; }
 
 .topic {
   padding: 1rem 0;
@@ -2013,7 +2028,7 @@ a {
 
 .topic-title {
   font-weight: 100;
-  line-height: 1.8rem; }
+  line-height: 3.2rem; }
   .topic-title a {
     color: inherit; }
 
@@ -2038,10 +2053,10 @@ a {
 
 /* Reponse styling */
 .responses {
-  margin: 1.4rem 2rem 0 2rem; }
+  margin: 1.6rem 2rem 0 2rem; }
 
 .response {
-  margin-bottom: 2.8rem;
+  margin-bottom: 3.2rem;
   clear: both; }
 
 .author, .since {
@@ -2063,7 +2078,14 @@ a {
   margin-right: 0.5rem; }
 
 .response-content {
-  word-wrap: break-word; }
+  word-wrap: break-word;
+  font-family: "Merriweather"; }
+
+.action-reply {
+  float: right; }
+  .action-reply .icon {
+    margin-right: 0.2rem;
+    font-size: 1rem; }
 
 @media (min-width: 800px) {
   body {

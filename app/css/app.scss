@@ -1,8 +1,11 @@
 /* app css stylesheet */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
+@import url(http://fonts.googleapis.com/css?family=Merriweather:400,700);
+
 @import '../components/normalize-scss/normalize';
 @import 'ionicons/ionicons';
 
-$line: 1.4rem;
+$line: 1.6rem;
 
 $wikigray : #aaa;
 $wikilink: #0645ad;
@@ -10,14 +13,16 @@ $wikilink: #0645ad;
 $text-dark : #226;
 $text-contrast-light: #666;
 $light: #ddd;
+$button-action-bg: #27ae60;
 
 html, body {
 	
-}
+} 
 
 body {
 	line-height: $line;
 	color: $text-dark;
+	font-family: "Open Sans";
 }
 
 a {
@@ -25,6 +30,20 @@ a {
 	text-decoration: none;
 	cursor: pointer;
 }
+
+button {
+	background: none;
+	border: 0;
+	border-radius: .2rem;
+	color: $wikigray;
+	font-weight: 100;
+	font-size: .8rem;
+}
+
+	button:hover {
+		background: $button-action-bg;
+		color: white;
+	}
 
 .topic {
 	padding: 1rem 0;
@@ -38,7 +57,7 @@ a {
 
 	.topic-title {
 		font-weight: 100;
-		line-height: 1.8rem;
+		line-height: $line * 2;
 
 		a {
 			color: inherit;
@@ -80,7 +99,7 @@ a {
 /* Reponse styling */
 
 .responses {
-	margin: 1.4rem 2rem 0 2rem;
+	margin: $line 2rem 0 2rem;
 }
 
 .response {
@@ -113,6 +132,17 @@ a {
 
 .response-content {
 	word-wrap: break-word;
+	font-family: "Merriweather";
+}
+
+.action-reply {
+
+	float: right;
+
+	.icon {
+		margin-right: .2rem;
+		font-size: 1rem;
+	}
 }
 
 @media (min-width: 800px) {

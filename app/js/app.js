@@ -7,11 +7,11 @@ define( [
 	'moment'
 ], function ( angular, config, discussionService, discussionController, topicController, moment )
 {
-	var app = angular.module( 'flow', [] ).run( function( $rootScope ){
+	var app = angular.module( 'flow', [] ).run( ['$rootScope', function( $rootScope ){
 
 		$rootScope.loadingExternal = false;
 
-	});
+	}]);
 
 	app.factory( 'discussionService', discussionService );
 	app.controller( 'discussionController', discussionController );
@@ -30,18 +30,7 @@ define( [
 
 	        return $sce.trustAsHtml(date);
 	    };
-	}]).
-	filter( 'string_to_colour', function(){
-		return function (str) {
-		    // str to hash
-		    for (var i = 0, hash = 0; i < str.length; hash = str.charCodeAt(i++) + ((hash << 5) - hash));
-
-		    // int/hash to hex
-		    for (var i = 0, colour = "#"; i < 3; colour += ("00" + ((hash >> i++ * 8) & 0xFF).toString(16)).slice(-2));
-
-	    	return colour;
-		}
-	});
+	}]);
 
 	return app;
 } );

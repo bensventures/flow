@@ -19,7 +19,7 @@
 <body ng-controller="discussionController">
 
 <article class="ng-cloak topic" ng-class="{opened : topicVisible}" ng-repeat="topic in topics" ng-controller="topicController">
-	<header class="topic-header cf" style="color:{{ topic.topictitle | string_to_colour }}">
+	<header class="topic-header cf" style="color:{{ color }}">
 		<h2 class="topic-title">
 			<a ng-click="onClickTopicTitle()">
 				<i class="ion icon-topic-state"></i>{{ topic.topictitle }}
@@ -46,6 +46,7 @@
 				</span>
 			</header>
 			<div class="response-content" ng-bind-html="response.posttext | to_trusted"></div>
+			<div class="actions cf"><button class="action-reply"><i class="icon ion-chatbox-working"></i>reply</button></div>
 		</article>
 	</section>
 </article>

@@ -56,8 +56,7 @@ module.exports = function ( grunt )
 					name : '../bootstrap',
 					mainConfigFile : 'app/bootstrap.js',
 					out : 'dist/js/<%= pkg.name %>.js',
-					include : ['../components/almond/almond.js'],
-					optimize : 'none'
+					include : ['../components/almond/almond.js']
 				}
 			}
 		},
